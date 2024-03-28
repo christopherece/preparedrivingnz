@@ -1,0 +1,14 @@
+body {
+    font-size: 2.2rem; /* Increase the base font size */
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-size: 1.5rem; /* Increase the heading font size */
+  }
+  
+  p, span, label, input, button {
+    font-size: 1.2rem; /* Increase the paragraph, span, label, input, and button font size */
+  }
+  
+  /* Add more CSS rules as needed to target other elements */
+  

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container">
+        <form id="quizForm" action="{% url 'submit_quiz' %}" method="POST">
+            {% csrf_token %}
+            <div id="questionContainer" class="position-relative">
+                {% for question in questions %}
+                <div class="card mt-3 question">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h2 class="card-title">Question {{ forloop.counter }}</h2>
+                                <p class="card-text">{{ question.text }}</p>
+                                {% for option in question.options.all %}
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="q{{ question.id }}" value="{{ option.id }}" data-correct="{{ option.is_correct }}">
+                                        <label class="form-check-label">{{ option.text }}</label>
+                                    </div>
+                                {% endfor %}
+                                <p></p>
+                                <button type="button" class="btn btn-primary nextBtn">Next</button>
+                            </div>
+                        </div>
+                        <div class="col-md-4 d-flex align-items-center justify-content-center">
+                            {% if question.photo_main and question.photo_main.url %}
+                                <img src="{{ question.photo_main.url }}" alt="Image" class="img-fluid">
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <p></p>
+                        <input type="hidden" name="total_questions" value="{{ questions|length }}">
+            <button type="submit" class="btn btn-primary" id="submitBtn" style="display: none;">Submit</button>
+            <p></p>
+        </form>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,76 @@
+{% load static%}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quiz App</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+  <style>
+    /* Custom styles for the quiz app */
+    body {
+      font-size: 1.0rem; /* Increase the base font size */
+      font-family: 'Montserrat', sans-serif;
+      background-color: #F5F5F5;
+      color: white;
+
+      
+    }
+ 
+    .card a {
+      text-decoration: none;
+    }
+
+    .card-header {
+      background-color: #0D47A1;
+    }
+    h1 {
+      text-align: center;
+    }
+    
+    .question {
+      margin-bottom: 20px;
+    }
+    
+    .options label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    
+    .submit-btn {
+      margin-top: 20px;
+      text-align: center;
+      background-color: #009688;
+    }
+
+    .question:not(.active) {
+      display: none;
+  }
+
+  
+
+  
+
+  
+  </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    {% include 'partials/_topbar.html' %}
+    <!-- Navbar -->
+    {% include 'partials/_navbar.html' %}
+    <!-- Main Content -->
+    {% block content %}    
+    {% endblock %}
+
+    <!-- Footer -->
+    {% include 'partials/_footer.html' %}
+
+
+
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/app.js' %}"></script>
+</body>
+</html>
