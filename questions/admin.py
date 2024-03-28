@@ -3,7 +3,14 @@ from .models import Question
 from .models import Option
 
 # Register your models here.
+
+class OptionInline(admin.TabularInline):  # Inline to display options with questions
+    model = Option
+    extra = 3  # Number of extra option fields to display
+
+
 class QuestionAdmin(admin.ModelAdmin):
+    inlines = [OptionInline]  # Add the OptionInline to the QuestionAdmin
     list_display = (
         'id',
         'text',
@@ -13,7 +20,6 @@ class QuestionAdmin(admin.ModelAdmin):
 
 
     )
-admin.site.register(Question, QuestionAdmin)
 
 class OptionAdmin(admin.ModelAdmin):
     list_display = (
@@ -23,4 +29,6 @@ class OptionAdmin(admin.ModelAdmin):
         'text',
         'is_correct',
     )
+    
+admin.site.register(Question, QuestionAdmin)
 admin.site.register(Option, OptionAdmin)

@@ -14,6 +14,8 @@ def index(request, category):
     }
     return render(request, 'pages/index.html', context)
 
+def about(request):
+    return render(request, 'pages/about.html')
 
 def dashboard(request):
     categories = Category.objects.all()
