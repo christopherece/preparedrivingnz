@@ -3,6 +3,9 @@ from questions.models import Question, Option
 from category.models import Category
 from django.http import JsonResponse
 import random
+from django.contrib import messages
+from django.utils import timezone
+from.models import Contact
 
 def index(request, category):
     questions = list(Question.objects.filter(category_id=category))
@@ -16,6 +19,36 @@ def index(request, category):
 
 def about(request):
     return render(request, 'pages/about.html')
+
+def contact(request):
+    return render(request, 'pages/contact.html')
+
+def submitcontact(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+        email = request.POST['email']
+        subject = request.POST['subject']
+        message = request.POST['message']
+
+    # Check if the email is already exist
+        # Check if the email and date combination already exists
+        today_start = timezone.now().replace(hour=0, minute=0, second=0, microsecond=0)
+        today_end = today_start + timezone.timedelta(days=1)
+        if Contact.objects.filter(email=email, date__range=(today_start, today_end)).exists():
+            messages.error(request, 'You have already submitted a message with this email today. Please wait for response!')
+            return render(request, 'pages/contact.html')
+
+    contact = Contact(
+        name = name,
+        email = email, 
+        subject = subject,
+        message = message,
+
+    )
+
+    contact.save()
+    messages.success(request, 'Your message has been submitted')
+    return render(request, 'pages/contact.html')
 
 def dashboard(request):
     categories = Category.objects.all()
