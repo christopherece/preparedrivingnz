@@ -27,3 +27,9 @@
       float: none; /* Ensure each column stacks vertically */
   }
 }
+
+@media (max-width: 480px) {
+  .column {
+      width: 100%; /* Make each column take up full width on extra small screens */
+  }
+}
