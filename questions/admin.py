@@ -6,7 +6,7 @@ from .models import Option
 
 class OptionInline(admin.TabularInline):  # Inline to display options with questions
     model = Option
-    extra = 3  # Number of extra option fields to display
+    extra = 4  # Number of extra option fields to display
 
 
 class QuestionAdmin(admin.ModelAdmin):

@@ -19,3 +19,11 @@
 .hero-banner p {
   font-size: 18px;
 }
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .column {
+      width: 100%; /* Make each column take up full width on smaller screens */
+      float: none; /* Ensure each column stacks vertically */
+  }
+}

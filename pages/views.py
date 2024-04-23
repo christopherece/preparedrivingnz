@@ -28,7 +28,7 @@ def submitcontact(request):
         name = request.POST['name']
         email = request.POST['email']
         subject = request.POST['subject']
-        message = request.POST['message']
+        description = request.POST['description']
 
     # Check if the email is already exist
         # Check if the email and date combination already exists
@@ -42,7 +42,7 @@ def submitcontact(request):
         name = name,
         email = email, 
         subject = subject,
-        message = message,
+        description = description,
 
     )
 
