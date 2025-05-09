@@ -9,53 +9,206 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
 
-  <style>
-    /* Custom styles for the quiz app */
-    body {
-      font-size: 1.0rem; /* Increase the base font size */
-      font-family: 'Montserrat', sans-serif;
-      background-color: #F5F5F5;
-      color: white;
+<style>
+  /* === Global Styles === */
+body {
+  font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #F5F5F5;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
 
-      
-    }
- 
-    .card a {
-      text-decoration: none;
-    }
+h1, h2, h5 {
+  font-weight: 600;
+}
 
-    .card-header {
-      background-color: #0D47A1;
-    }
-    h1 {
-      text-align: center;
-    }
-    
-    .question {
-      margin-bottom: 20px;
-    }
-    
-    .options label {
-      display: block;
-      margin-bottom: 10px;
-    }
-    
-    .submit-btn {
-      margin-top: 20px;
-      text-align: center;
-      background-color: #009688;
-    }
+a {
+  text-decoration: none;
+}
 
-    .question:not(.active) {
-      display: none;
+/* === Top Bar === */
+#top-bar {
+  background-color: #e0f7fa;
+  font-size: 0.95rem;
+  color: #000;
+  border-bottom: 1px solid #ccc;
+}
+
+#top-bar a {
+  color: #000;
+  margin-left: 10px;
+}
+
+/* === Navbar === */
+.navbar {
+  background-color: #333333 !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand img {
+  height: 40px;
+}
+
+.navbar-nav .nav-link {
+  color: white !important;
+  font-weight: 500;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #B2DFDB !important;
+}
+
+/* === Hero Banner === */
+.hero-banner {
+  background-color: white;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.hero-banner h2 {
+  color: #0D47A1;
+}
+
+/* === Quiz Cards === */
+.card {
+  border: none;
+  border-radius: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background-color: #fff;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+}
+
+.card-header {
+  background-color: #0D47A1;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-align: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card-body {
+  padding: 20px;
+  color: #333;
+}
+
+.card-text {
+  font-size: 0.95rem;
+  text-align: justify;
+  color: #333;
+}
+
+.card-footer {
+  background-color: #fff;
+  border-top: none;
+  text-align: center;
+  padding: 15px 20px;
+}
+
+/* === Unified Button Style (Matches Banner) === */
+.btn.view-btn {
+  background-color: #0D47A1;
+  color: white;
+  font-weight: 500;
+  border-radius: 5px;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease;
+  border: none;
+}
+
+.btn.view-btn:hover {
+  background-color: #08306b;
+  color: white;
+}
+
+/* === Ad Box === */
+.ad-rectangle {
+  background-color: #fff;
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #777;
+  font-style: italic;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  padding: 20px;
+}
+
+/* === Footer === */
+#main-footer {
+  background-color: #333333;
+  color: #B0BEC5;
+  font-size: 0.9rem;
+  padding: 20px 0;
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* === Quiz Page Specific === */
+.question {
+  margin-bottom: 20px;
+}
+
+.options label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.submit-btn {
+  margin-top: 20px;
+  background-color: #0D47A1;
+  color: white;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #08306b;
+  color: white;
+}
+
+/* Hide inactive questions */
+.question:not(.active) {
+  display: none;
+}
+
+/* === Responsive Fixes === */
+@media (max-width: 767.98px) {
+  .hero-banner {
+    padding: 20px;
   }
 
-  
+  .navbar-nav .nav-link {
+    padding-left: 10px;
+  }
 
-  
+  .card-body {
+    padding: 15px;
+  }
 
-  
-  </style>
+  .btn.view-btn {
+    width: 100%;
+  }
+
+  .ad-rectangle {
+    margin-top: 20px;
+  }
+}
+
+</style>
 </head>
 <body>
     <!-- Top Bar -->

@@ -1,48 +1,68 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container" style="display: inline;">
-  <div class="hero-banner">
-    <div class="container" style="color: black;">
-      <h2>Quiz and Conquer: Ace Your Driving Test </h2>
-      <p>
-        Getting ready for your 2024 NZ Road Code driving test?
-        You're making progress towards passing your official NZ Road Code Test. With our carefully crafted practice tests, you'll receive invaluable assistance and relevant practice to prepare thoroughly before your official test. The questions in the NZ Driving Theory Test Practice mirror those found in the NZ Road Code Test, ensuring you're well-prepared for the real exam.
+<div class="container my-5">
+  <div class="hero-banner p-4 mb-5 bg-white rounded shadow-sm">
+    <div class="text-dark">
+      <h2 class="text-center text-primary mb-3">Quiz and Conquer: Ace Your Driving Test</h2>
+      <p style="color: #333;">
+        Getting ready for your 2024 NZ Road Code driving test? You're making progress towards passing your official test. Our practice tests mirror real exam questions to help you pass confidently.
       </p>
     </div>
   </div>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8">
-        <div class="row">
-          {% for category in categories %}
-          <div class="col-md-6">
-            <div class="card" style="margin: 5px;">
-              <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
-              <h5 class="card-header">{{ category }}</h5>
-              <div class="card-body" style="height: 150px;">
-                <p class="card-text" style="color: black; text-align: justify;">{{ category.description }}</p>
-               
-              </div>
-              <div class="card-footer">
-                <a href="{% url 'index' category.id %}" class="btn " style="background-color: #009688;">View Questions</a>
-  
-              </div>
+  <div class="row">
+    <!-- Categories section (col-md-8) -->
+    <div class="col-md-8">
+      <div class="row">
+        {% for category in categories %}
+        <div class="col-sm-12 col-md-6 col-lg-6 mb-4">
+          <div class="card h-100 shadow-sm" style="border-radius: 10px;">
+            <div class="card-header text-white" style="background-color: #0D47A1;">
+              <h5 class="mb-0">{{ category }}</h5>
+            </div>
+            <div class="card-body" style="color: black; background-color: white;">
+              <p class="card-text text-justify">{{ category.description }}</p>
+            </div>
+            <div class="card-footer bg-white border-0 text-center">
+              <a href="{% url 'index' category.id %}" class="btn view-btn">View Questions</a>
             </div>
           </div>
-          {% endfor %}
         </div>
+        {% endfor %}
       </div>
-      <div class="col-md-4 d-none d-md-block" style="display: flex;">
-        <div class="ad-rectangle" style="flex-grow: 1; background-color: #f0f0f0; display: flex; justify-content: center; align-items: center;">
-          <!-- Content of the ad rectangle -->
-          <p style="color: black;">Your Ad here..........</p>
-        </div>
+    </div>
+
+    <!-- Do's and Don'ts section (col-md-4) -->
+    <div class="col-md-4">
+      <div class="bg-white p-4 rounded shadow-sm mb-4">
+        <h5 class="text-primary mb-3">✅ Driving Do's</h5>
+        <ul class="pl-3" style="color: #333;">
+          <li>Always carry your driver licence</li>
+          <li>Wear your seatbelt at all times</li>
+          <li>Keep a safe following distance</li>
+          <li>Use your indicators correctly</li>
+          <li>Follow the speed limits</li>
+        </ul>
+
+        <h5 class="text-danger mt-4 mb-3">❌ Driving Don’ts</h5>
+        <ul class="pl-3" style="color: #333;">
+          <li>Don’t use your phone while driving</li>
+          <li>Don’t drink and drive</li>
+          <li>Don’t run red lights</li>
+          <li>Don’t overtake on double yellow lines</li>
+          <li>Don’t drive when tired or distracted</li>
+        </ul>
+
+        <h5 class="text-secondary mt-4 mb-2">🔗 Useful NZ Driving Resources</h5>
+        <ul class="pl-3" style="color: #333;">
+          <li><a href="https://www.nzta.govt.nz/roadcode/" target="_blank">NZ Road Code</a></li>
+          <li><a href="https://www.nzta.govt.nz/licence/" target="_blank">NZTA Licence Info</a></li>
+          <li><a href="https://www.drivingtests.co.nz/" target="_blank">DrivingTests.co.nz</a></li>
+          <li><a href="https://www.police.govt.nz/advice/driving" target="_blank">NZ Police: Driving Advice</a></li>
+        </ul>
       </div>
-      
     </div>
   </div>
- 
 </div>
 {% endblock %}
