@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container">
+<div class="container" style="display: inline;">
   <div class="hero-banner">
     <div class="container" style="color: black;">
-      <h1>Quiz and Conquer: Ace Your Driving Test </h1>
+      <h2>Quiz and Conquer: Ace Your Driving Test </h2>
       <p>
         Getting ready for your 2024 NZ Road Code driving test?
         You're making progress towards passing your official NZ Road Code Test. With our carefully crafted practice tests, you'll receive invaluable assistance and relevant practice to prepare thoroughly before your official test. The questions in the NZ Driving Theory Test Practice mirror those found in the NZ Road Code Test, ensuring you're well-prepared for the real exam.
@@ -12,34 +12,37 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-md-8">
-      <div class="row">
-        {% for category in categories %}
-        <div class="col-md-6">
-          <div class="card" style="margin: 5px;">
-            <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
-            <h5 class="card-header">{{ category }}</h5>
-            <div class="card-body" style="height: 150px;">
-              <p class="card-text" style="color: black; text-align: justify;">{{ category.description }}</p>
-             
-            </div>
-            <div class="card-footer">
-              <a href="{% url 'index' category.id %}" class="btn " style="background-color: #009688;">View Questions</a>
-
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="row">
+          {% for category in categories %}
+          <div class="col-md-6">
+            <div class="card" style="margin: 5px;">
+              <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+              <h5 class="card-header">{{ category }}</h5>
+              <div class="card-body" style="height: 150px;">
+                <p class="card-text" style="color: black; text-align: justify;">{{ category.description }}</p>
+               
+              </div>
+              <div class="card-footer">
+                <a href="{% url 'index' category.id %}" class="btn " style="background-color: #009688;">View Questions</a>
+  
+              </div>
             </div>
           </div>
+          {% endfor %}
         </div>
-        {% endfor %}
       </div>
-    </div>
-    <div class="col-md-4" style="display: flex;">
-      <div class="ad-rectangle" style="flex-grow: 1; background-color: #f0f0f0; display: flex; justify-content: center; align-items: center;">
-        <!-- Content of the ad rectangle -->
-        <p style="color: black;">Your Ad here..........</p>
+      <div class="col-md-4 d-none d-md-block" style="display: flex;">
+        <div class="ad-rectangle" style="flex-grow: 1; background-color: #f0f0f0; display: flex; justify-content: center; align-items: center;">
+          <!-- Content of the ad rectangle -->
+          <p style="color: black;">Your Ad here..........</p>
+        </div>
       </div>
+      
     </div>
-    
   </div>
+ 
 </div>
 {% endblock %}

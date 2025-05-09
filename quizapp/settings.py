@@ -26,8 +26,8 @@ SECRET_KEY = 'django-insecure-auva=2&0q0op*!zeamd221*ylws9o1p-jazw=-@8+@v$j#-s62
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.10.221', 'localhost','192.168.10.135','192.168.10.248','preparedrivingnz.balaydalakay.com']
-CSRF_TRUSTED_ORIGINS = ['https://preparedrivingnz.balaydalakay.com','http://preparedrivingnz.balayadalakay.com']
+ALLOWED_HOSTS = ['localhost','192.168.10.250','preparedrivingnz.balaydalakay.com','preparedrivingnz.topitsolutions.co.nz']
+CSRF_TRUSTED_ORIGINS = ['https://preparedrivingnz.topitsolutions.co.nz','http://preparedrivingnz.topitsolutions.co.nz']
 
 
 # Application definition
@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'mssql',
+
 ]
 
 MIDDLEWARE = [
@@ -79,14 +81,25 @@ WSGI_APPLICATION = 'quizapp.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+    'default1': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'quizapp_tbl',
         'USER': 'postgres',
         'PASSWORD': '!pass1234',
         'HOST':'192.168.10.225',
         'PORT': '5432',
-    }
+    },'default': {
+        #'ENGINE': 'sql_server.pyodbc',
+        'ENGINE': 'mssql',
+        'NAME': 'preparedrive_db',
+        'USER': 'chris',
+        'PASSWORD': 'Nokia5130-c',
+        'HOST': '192.168.10.250',
+        'PORT':'1433',
+        'OPTIONS': {
+            'driver': 'ODBC Driver 17 for SQL Server',
+        }
+    },
 }
 
 
@@ -114,7 +127,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Pacific/Auckland'
 
 USE_I18N = True
 

@@ -10,14 +10,14 @@
   text-align: center;
 }
 
-.hero-banner h1 {
-  font-size: 36px;
+.hero-banner h2 {
+  font-size: 26px;
   font-weight: bold;
   margin-bottom: 20px;
 }
 
 .hero-banner p {
-  font-size: 18px;
+  font-size: 14px;
 }
 
 /* Media query for smaller screens */
@@ -32,4 +32,8 @@
   .column {
       width: 100%; /* Make each column take up full width on extra small screens */
   }
+}
+
+.form-check-label {
+  font-size: 20px;
 }

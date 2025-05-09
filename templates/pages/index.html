@@ -14,11 +14,11 @@
                     <div class="row">
                         <div class="col-md-8">
                             <div class="card-body" style="color: black;">
-                                <p class="card-text" style="font-size: 30px; font-weight: bold;">{{ question.text }}</p>
+                                <p class="card-text" style="font-size: 22px; font-weight: bold;">{{ question.text }}</p>
                                 {% for option in question.options.all %}
                                     <div class="form-check" style="display: flex; align-items: center;">
                                         <input class="form-check-input" type="radio" style="transform: scale(1.8)" name="q{{ question.id }}" value="{{ option.id }}" data-correct="{{ option.is_correct }}">
-                                        <label class="form-check-label" style="font-size:25px; margin-left: 15px;">{{ option.text }}</label>
+                                        <label class="form-check-label" style="font-size:20px; margin-left: 15px;">{{ option.text }}</label>
                                     </div>
                                 {% endfor %}
                             </div>
